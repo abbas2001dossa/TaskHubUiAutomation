@@ -11,7 +11,12 @@ test.describe('Catalog Page functionality', () => {
 
         await loginPage.login(loginTestData.validUser.username, loginTestData.validUser.password);
         await loginPage.verifyLoginSuccessful();
-        catalogPage.deriveExistingProducts();
+        const searchProductName = await catalogPage.deriveExistingProducts();
+        const productCountBeforeSearch = await catalogPage.verifySearchResultsContain();
+        console.log('Search product name:', searchProductName);
+        await catalogPage.searchProduct(searchProductName);
+        const productCountAfterSearch = await catalogPage.verifySearchResultsContain();
+        
     });
 
 

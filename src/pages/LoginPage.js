@@ -4,15 +4,14 @@ const baseUrl = EnvUtil.get('BASE_URL');
 const Constants = require('./../utils/Constants');
 const LoginLocators = require('../locators/LoginLocators');
 const { expect } = require('@playwright/test');
-const { default: CatalogLocators } = require('../locators/CatalogLocators');
-
+const catalogLocators = require('../locators/CatalogLocators');
 class LoginPage extends BasePage {
   constructor(page) {
     super(page);
     this.emailInput = page.locator(LoginLocators.USERNAME_INPUT);
     this.passwordInput = page.locator(LoginLocators.PASSWORD_INPUT);
     this.loginButton = page.locator(LoginLocators.LOGIN_BUTTON);
-    this.catalogText = page.locator(CatalogLocators.CATALOG_TEXT);
+    this.catalogText = page.locator(catalogLocators.CATALOG_TEXT);
     this.inlineError = page.locator(LoginLocators.INLINE_ERROR);
     this.inlineErrorText = LoginLocators.INLINE_ERROR_TEXT;
   }
