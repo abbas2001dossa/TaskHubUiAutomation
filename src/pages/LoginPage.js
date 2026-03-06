@@ -5,6 +5,8 @@ const Constants = require('./../utils/Constants');
 const LoginLocators = require('../locators/LoginLocators');
 const { expect } = require('@playwright/test');
 const catalogLocators = require('../locators/CatalogLocators');
+
+
 class LoginPage extends BasePage {
   constructor(page) {
     super(page);

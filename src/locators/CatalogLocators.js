@@ -5,7 +5,13 @@ class CatalogLocators {
     static SORT_DROPDOWN='//select[@data-testid="sort"]';
     static CATEGORY_DROPDOWN='//select[@data-testid="category"]';
     static INSTOCK_CHECKBOX='//input[@data-testid="in-stock-only"]';
-    static PRODUCT_NAMES='[data-testid="product-name"]'
+    static PRODUCT_NAMES='[data-testid="product-name"]';
+    static STOCK_STATUS='[data-testid="stock-tag"]';
+    static ADD_TO_CART_BUTTON='[data-testid="add-to-cart"]';
+    static ADD_TO_CART_NOTIFICATION='//*[contains(@class,"toast")]';
+    static CART_COUNT_BADGE='[data-testid="cart-count"]';
+    static GO_CHECKOUT_BUTTON='[data-testid="go-checkout"]';
+    static PRODUCT_PRICE='[data-testid="product-price"]';
 }
 
 module.exports=CatalogLocators;
