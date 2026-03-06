@@ -1,5 +1,5 @@
 const BasePage = require('../BasePage');
-const EnvUtil = require('./../utils/envConfig');
+const EnvUtil = require('../utils/envConfig');
 const CatalogLocators = require('../locators/CatalogLocators');
 
 

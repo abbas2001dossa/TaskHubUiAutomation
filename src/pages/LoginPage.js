@@ -1,5 +1,5 @@
 const BasePage = require('../BasePage');
-const EnvUtil = require('./../utils/envConfig');
+const EnvUtil = require('../utils/envConfig');
 const baseUrl = EnvUtil.get('BASE_URL');
 const Constants = require('./../utils/Constants');
 const LoginLocators = require('../locators/LoginLocators');

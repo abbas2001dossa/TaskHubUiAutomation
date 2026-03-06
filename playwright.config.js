@@ -10,20 +10,37 @@
       use: {
         browserName: 'chromium', // Default browser to use
         headless: true, // Run tests in headless mode (no browser UI)
+        screenshot: 'on', // Capture screenshots on every test action
+        trace: 'on-first-retry', // Capture trace on first retry
       },
       projects: [
         {
           name: 'chromium',
-          use: { ...require('@playwright/test').devices['Desktop Chrome'] },
+          use: { 
+            ...require('@playwright/test').devices['Desktop Chrome'],
+            screenshot: 'on',
+            trace: 'on-first-retry',
+          },
         },
         {
           name: 'firefox',
-          use: { ...require('@playwright/test').devices['Desktop Firefox'] },
+          use: { 
+            ...require('@playwright/test').devices['Desktop Firefox'],
+            screenshot: 'on',
+            trace: 'on-first-retry',
+          },
         },
         {
           name: 'webkit',
-          use: { ...require('@playwright/test').devices['Desktop Safari'] },
+          use: { 
+            ...require('@playwright/test').devices['Desktop Safari'],
+            screenshot: 'on',
+            trace: 'on-first-retry',
+          },
         },
       ],
-      reporter: 'html', // Generate an HTML report
+      reporter: [
+        ['html'], // Generate an HTML report
+        ['json', { outputFile: 'test-results/results.json' }], // JSON report
+      ],
     });
