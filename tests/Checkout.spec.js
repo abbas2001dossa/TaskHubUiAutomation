@@ -26,6 +26,22 @@ test.describe('Checkout Page functionality ', () => {
         const productPrice = await catalogPage.getFirstProductPrice();
         console.log("First Product Price:", productPrice);
         await catalogPage.clickGoCheckOut();
+
+        // verify line total equals product price for quantity 1
+        const lineTotal = await checkOutOrderPage.getCartItemLineTotal();
+        expect("$"+lineTotal).toBe(productPrice);
+
+        // increase quantity and verify line total 
+        await checkOutOrderPage.increaseQty();
+        const increasedLineTotal = await checkOutOrderPage.getCartItemLineTotal();
+        expect("$"+increasedLineTotal).toBe("$"+(lineTotal * 2));
+
+        // decrease quantity and verify line total
+        await checkOutOrderPage.decreaseQty();
+        const decreasedLineTotal = await checkOutOrderPage.getCartItemLineTotal();
+        expect("$"+decreasedLineTotal).toBe(productPrice);
     });
+
+    
 
 });
